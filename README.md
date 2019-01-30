@@ -1,2 +1,2 @@
 # standard
-Open standard format for text and voice conversational agents
+Open standard format for text and voice conversational agents.
