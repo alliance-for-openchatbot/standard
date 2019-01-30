@@ -1,6 +1,6 @@
 = Alliance for Open ChatBot DRAFT Specifications
 :Date:      22/06/2018
-:Revision:  v0.0.1
+:Revision:  v0.1.1
 //:source-highlighter: pygments
 //:pygments-style: emacs
 ifdef::env-github[]
@@ -17,6 +17,8 @@ endif::[]
 :toc:
 :toc-placement!:
 
+image::https://img.shields.io/badge/status-draft-red.svg[float="left"]
+image::https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat[float="left"]
 image::Alliance-for-Open-ChatBot-header-image.jpg[float="right"]
 
 WARNING: This Open ChatBot Specification is still a work in progress version and not yet published as an official release.
