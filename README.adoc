@@ -19,8 +19,8 @@ endif::[]
 
 ++++
 <p float="left">
-  <img src="https://img.shields.io/badge/status-draft-red.svg" />
-  <img src="https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat" /> 
+  <a href="https://github.com/alliance-for-openchatbot/standard#anchor-introduction"><img src="https://img.shields.io/badge/status-draft-red.svg" /></a>
+  <a href="https://openchatbot.io/swagger/swagger.html"><img src="https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat" /></a>
 </p>
 ++++
 
@@ -33,6 +33,7 @@ WARNING: This Open ChatBot Specification is still a work in progress version and
 
 toc::[]
 
+[[anchor-introduction]]
 == Introduction
 Open ChatBot is an https://www.alliance-open-chatbot.org[Alliance For Open ChatBot] initiative 
 that propose a common API specification for a simple chatbot conversation (text and/or voice).
