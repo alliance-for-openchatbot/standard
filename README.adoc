@@ -4,8 +4,7 @@
 //:source-highlighter: pygments
 //:pygments-style: emacs
 ifdef::env-github[]
-:imagesdir:
- https://github.com/alliance-for-openchatbot/standard/blob/master/images
+:imagesdir: https://github.com/alliance-for-openchatbot/standard/blob/master/images
 :tip-caption: :bulb:
 :note-caption: :information_source:
 :important-caption: :heavy_exclamation_mark:
