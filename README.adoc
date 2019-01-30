@@ -1,12 +1,28 @@
 = Alliance for Open ChatBot DRAFT Specifications
-:toc: left
-//:Author:    Olivier HO-A-CHUCK
-//:Email:     olivier.hoachuck@orange.com
 :Date:      22/06/2018
 :Revision:  v0.0.1
 //:source-highlighter: pygments
 //:pygments-style: emacs
+ifdef::env-github[]
+:imagesdir:
+ https://gist.githubusercontent.com/path/to/gist/revision/dir/with/all/images
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+ifndef::env-github[]
+:imagesdir: ./
+endif::[]
+:toc:
+:toc-placement!:
 
+image::https://res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_1500,w_2000,f_auto,q_auto/v1/1289166/chatbots_cw817t.jpg[float="right"]
+
+WARNING: This Open ChatBot Specification is still a work in progress version and not published as official release.
+
+toc::[]
 
 == Introduction
 Open ChatBot is an https://www.alliance-open-chatbot.org[Alliance For Open ChatBot] initiative 
