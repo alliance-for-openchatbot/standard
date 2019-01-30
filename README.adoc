@@ -17,7 +17,9 @@ endif::[]
 :toc:
 :toc-placement!:
 
+[.left]
 image::https://img.shields.io/badge/status-draft-red.svg[float="left"]
+[.left]
 image::https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat[float="left"]
 image::Alliance-for-Open-ChatBot-header-image.jpg[float="right"]
 
