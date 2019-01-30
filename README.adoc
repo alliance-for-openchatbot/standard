@@ -292,8 +292,10 @@ Any custom item could by added there.
 |copyright| +String+ | Copyright | *OPTIONAL*
 |====
 
-== Testable Swagger API
-You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here].
+== Swagger demo
+Test your client with current version of Open ChatBot specification.
+
+You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here]. Use "@degug suggestions" in the chat box for a full set of keys within response.
 
 ++++
 <script src="https://openchatbot.io/publicOCB/scripts/importocb.js"></script>
