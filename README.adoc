@@ -17,6 +17,13 @@ endif::[]
 :toc:
 :toc-placement!:
 
+++++
+<p float="left">
+  <img src="https://img.shields.io/badge/status-draft-red.svg" width="100%" />
+  <img src="https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat" width="100%" /> 
+</p>
+++++
+
 image::https://img.shields.io/badge/status-draft-red.svg[float="left"]
 image::https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat[float="left"]
 
