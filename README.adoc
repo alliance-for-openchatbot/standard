@@ -292,10 +292,6 @@ Any custom item could by added there.
 |copyright| +String+ | Copyright | *OPTIONAL*
 |====
 
-== Sample rendering
-Click on the bottom chat button to see a quick and dirty illustration of a query that display a media object with buttons and suggestions. +
-In order to test rich content, try to type: "@debug suggestions"
-
 == Testable Swagger API
 You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here].
 
