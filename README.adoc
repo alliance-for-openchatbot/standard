@@ -16,7 +16,7 @@ ifndef::env-github[]
 endif::[]
 :toc:
 :toc-placement!:
-/Alliance-for-Open-ChatBot-header-image.jpg
+
 image::Alliance-for-Open-ChatBot-header-image.jpg[float="right"]
 
 WARNING: This Open ChatBot Specification is still a work in progress version and not yet published as an official release.
