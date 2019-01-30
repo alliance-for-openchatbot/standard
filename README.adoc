@@ -27,7 +27,7 @@ endif::[]
 
 image::Alliance-for-Open-ChatBot-header-image.jpg[float="right"]
 
-WARNING: This Open ChatBot Specification is still a work in progress version and not yet published as an official release.
+WARNING: This specification is still a work in progress version and not yet published as an official release.
 
 toc::[]
 
