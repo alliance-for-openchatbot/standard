@@ -1,4 +1,4 @@
-= Alliance for Open ChatBot DRAFT Specifications
+= Alliance for Open ChatBot - DRAFT Specifications
 :Date:      22/06/2018
 :Revision:  v0.1.1
 //:source-highlighter: pygments
