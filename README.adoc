@@ -5,7 +5,7 @@
 //:pygments-style: emacs
 ifdef::env-github[]
 :imagesdir:
- https://gist.githubusercontent.com/path/to/gist/revision/dir/with/all/images
+ https://github.com/alliance-for-openchatbot/standard/blob/master/images
 :tip-caption: :bulb:
 :note-caption: :information_source:
 :important-caption: :heavy_exclamation_mark:
@@ -13,14 +13,14 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 ifndef::env-github[]
-:imagesdir: ./
+:imagesdir: ./images
 endif::[]
 :toc:
 :toc-placement!:
+/Alliance-for-Open-ChatBot-header-image.jpg
+image::Alliance-for-Open-ChatBot-header-image.jpg[float="right"]
 
-image::https://res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_1500,w_2000,f_auto,q_auto/v1/1289166/chatbots_cw817t.jpg[float="right"]
-
-WARNING: This Open ChatBot Specification is still a work in progress version and not published as official release.
+WARNING: This Open ChatBot Specification is still a work in progress version and not yet published as an official release.
 
 toc::[]
 
