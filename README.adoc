@@ -24,8 +24,6 @@ endif::[]
 </p>
 ++++
 
-image::https://img.shields.io/badge/status-draft-red.svg[float="left"]
-image::https://img.shields.io/swagger/valid/2.0/https/openchatbot.io/swagger/swagger.yaml.svg?style=flat[float="left"]
 
 image::Alliance-for-Open-ChatBot-header-image.jpg[float="right"]
 
@@ -307,9 +305,4 @@ Any custom item could by added there.
 Test your client with current version of Open ChatBot specification.
 
 You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here]. Use "@degug suggestions" in the chat box for a full set of keys within response.
-
-++++
-<script src="https://openchatbot.io/publicOCB/scripts/importocb.js"></script>
-++++
-
 
