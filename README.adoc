@@ -27,14 +27,14 @@ endif::[]
 
 image::Alliance-for-Open-ChatBot-header.jpg[float="right"]
 
-WARNING: This specification is still a work in progress version and not yet published as an official release.
+WARNING: This specification is still a work in progress version and is not yet published as an official release.
 
 toc::[]
 
 [[anchor-introduction]]
 == Introduction
 Open ChatBot is an https://www.alliance-open-chatbot.org[Alliance For Open ChatBot] initiative 
-to define a common standard specification for communication with any conversational agent (text and/or voice).
+to define a common standard specification for communication with and between any conversational agent (text and/or voice).
 
 Current document is the very first *DRAFT* of this open standard specification.
 
@@ -178,7 +178,7 @@ Content-Type: application/json
     },
     "status": {
         "code": 200,
-        "errorType": "success"
+        "message": "success"
     },
     "meta": {
         "botName": "Ikea",
@@ -282,7 +282,7 @@ _status_ object provide with information on request success or failure.
 |====
 |Field Name | Type | Description | Required
 |code| Integer | Standard HTTP status code (ex: success=200, etc.)| *REQUIRED*
-|errorType| String | Human readable error description | *REQUIRED*
+|message| String | Human readable error description | *REQUIRED*
 |====
 
 [[anchor-meta]]
@@ -293,7 +293,7 @@ Any custom item could by added there.
 .Predifined meta keys
 |====
 |Field Name | Type | Description | Required
-|botName| +String+ | Used to name which service/bot is answering the question | *OPTIONAL*
+|botName| +String+ | Used to name which service/bot is answering the question. This name should be unique within a specific metabot instance. This name will have to be registred and approved by OpenChatBot Alliance as part of the certification process (official "Compatible OpenChatBot" stamp). | *REQUIRED*
 |botIcon| +String+ | Used to reference bot icon (image) url. No strong constraints given so far, but current recommendation is to keep it small (ex: 300x300 pixels) with alpha. | *OPTIONAL*
 |version| +String+ | Describing version number format with _major.minor_ as per latest https://swagger.io/specification/[OpenAPI specifications].| *OPTIONAL*
 |copyright| +String+ | Copyright | *OPTIONAL*
