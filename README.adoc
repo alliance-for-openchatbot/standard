@@ -282,7 +282,7 @@ _status_ object provide with information on request success or failure.
 |====
 |Field Name | Type | Description | Required
 |code| Integer | Standard HTTP status code (ex: success=200, etc.)| *REQUIRED*
-|message| String | Human readable error description | *REQUIRED*
+|message| String | Human readable status code description | *REQUIRED*
 |====
 
 [[anchor-meta]]
