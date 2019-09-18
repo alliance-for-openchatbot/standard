@@ -133,8 +133,8 @@ Content-Type: application/json
       "timestamp":1485358532524,
       "channel":{
          "web":{
-            "type":"moustachText",
-            "payload":"J'ai vos produits ici {{Go}}"
+            "type":"HTML",
+            "payload":"Je vous envoie <b>plus</b> d'information sur le Strandmon de chez Ikea"
          },
          "messaging":{
             "type":"plainText",
