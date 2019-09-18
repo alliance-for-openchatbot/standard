@@ -54,6 +54,7 @@ curl -X GET "https://bot-domain/api/v0.1/ask?userid=1234567890&lang=fr&query=je%
 |userId| String | String that describe user ID. There is no constraint on length as this ID should be compliant with any bots and services ID. From Facebook type of ID through web cookie token passing by mobile number in international format, or even concatenation of all of those type of ID. |  *REQUIRED*.
 |query| String | URL encoded query to chatbot. | *REQUIRED*
 |lang| String | Language tag, e.g., en, es etc.| *OPTIONAL*
+|echo| Object | Some information from previous bot answer to give back without any process | *OPTIONAL*
 |location| Object | Latitude / longitude and/or address. +
 Example: {"geoPoint": {"latitude": 39.500859,"longitude": -82.080317},"address": "44 Av de la Republique, Chatillon"} | *OPTIONAL*
 |====
@@ -72,6 +73,9 @@ curl -X "POST" "https://bot-domain/api/v0.1" \
      -d $'{
   "query": "je cherche la doc du fauteuil strandmon Ikea",
   "userId": "1234567890",
+  "echo": {
+    "session": "XXXXXXXX"
+  },
   "location": {
     "address": "44 Av de la Republique, Chatillon",
     "geoPoint": {
@@ -98,6 +102,9 @@ POST body:
     "query": "je cherche la doc du fauteuil strandmon Ikea",
     "userId": "1234567890",
     "lang": "fr",
+    "echo": {
+        "session": "XXXXXXXX"
+    },
     "location": {
         "geoPoint": {
             "latitude":"39.500859",
@@ -120,76 +127,98 @@ Content-Type: application/json
 [source,json]
 ----
 {
-    "response": {
-        "query": "je cherche la doc du fauteuil strandmon Ikea",
-        "userId": "1234567890",
-        "timestamp": 1485358532524,
-        "text": "Voilà !",
-        "tts": {
-            "type": "plainText",
-            "payload": "Je vous envoie plus d\'information sur le Strandmon de chez Ikea"
-        },
-        "infoURL": "https://www.ikea.com/fr/fr/catalog/products/70392542/",
-        "media": [
-            {
-                "shortDesc": "Fauteuil enfant, Vissle gris",
-                "longDesc": "Quand ils peuvent imiter les adultes, les enfants se sentent spéciaux et importants. C\'est pourquoi nous avons créé une version miniature du fauteuil STRANDMON, l\'un de nos produits favoris.",
-                "title": "STRANDMON",
-                "mimeType": "image/jpeg",
-                "src": "https://www.ikea.com/fr/fr/images/products/strandmon-fauteuil-enfant-gris__0574584_PE668407_S4.JPG",
-                "default_action": {
-                    "type": "web_url",
-                    "label":"Go",
-                    "payload": "https://www.ikea.com/fr/fr/catalog/products/70392542/"
-                },
-                "buttons":[
-                    {
-                        "type":"web_url",
-                        "label":"Acheter en ligne",
-                        "payload":"https://serv-api.target2sell.com/1.1/R/cookie/OFCBMN5RRHSG5L/1200/OFCBMN5RRHSG5L-1200-5/20343224/1/viewTogether-%7BtypeOfContextList%3A%5B%22current%22%2C%22view%22%5D%7D/f082e51f-561d-47f7-c0cb-13735e58bfc1"
-                    },
-                    {
-                        "type":"natural_language",
-                        "label":"Tous les fauteuils",
-                        "payload":"Je veux voir tous les fauteuils du magazin Ikea le plus proche"
-                    },
-                    {
-                        "type":"custom",
-                        "client": "specific_custom_client_name"
-                        "label":"Ajouter au panier",
-                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                    }
-                ]
-            }
-        ],
-        "suggestions": [
-            {
-                "type": "web_url",
-                "label": "Les magasins Ikea",
-                "payload": "https://www.ikea.com/ms/fr_FR/ikny_splash.html"
+   "response":{
+      "query":"je cherche la doc du fauteuil strandmon Ikea",
+      "userId":"1234567890",
+      "timestamp":1485358532524,
+      "channel":{
+         "web":{
+            "type":"moustachText",
+            "payload":"J'ai vos produits ici {{Go}}"
+         },
+         "messaging":{
+            "type":"plainText",
+            "payload":"Je vous envoie plus d'information sur le Strandmon de chez Ikea"
+         },
+         "sms":{
+            "type":"plainText",
+            "payload":"Je vous envoie plus d'information sur le Strandmon de chez Ikea"
+         },
+         "tts":{
+            "type":"plainText",
+            "payload":"Je vous envoie plus d'information sur le Strandmon de chez Ikea"
+         }
+      },
+      "media":[
+         {
+            "shortDesc":"Fauteuil enfant, Vissle gris",
+            "longDesc":"Quand ils peuvent imiter les adultes, les enfants se sentent spéciaux et importants. C'est pourquoi nous avons créé une version miniature du fauteuil STRANDMON, l'un de nos produits favoris.",
+            "title":"STRANDMON",
+            "mimeType":"image/jpeg",
+            "src":"https://www.ikea.com/fr/fr/images/products/strandmon-fauteuil-enfant-gris__0574584_PE668407_S4.JPG",
+            "default_action":{
+               "type":"web_url",
+               "label":"Go",
+               "payload":"https://www.ikea.com/fr/fr/catalog/products/70392542/"
             },
-            {
-                "type": "natural_language",
-                "label": "Politique de confidentialité",
-                "payload": "Je voudrais voir la politique de confidentialité de la société Ikea en France"
-            }
-        ],
-        "context": []
-    },
-    "status": {
-        "code": 200,
-        "message": "success"
-    },
-    "meta": {
-        "botName": "Ikea",
-        "botIcon": "https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/4a/23/cb/4a23cb34-1039-af8d-32f0-c3e3bf313da3/source/256x256bb.jpg",
-        "version": "0.1",
-        "copyright": "Copyright 2018 Ikea.",
-        "authors": [
-            "Jane Doe",
-            "John Doe"
-        ]
-    }
+            "buttons":[
+               {
+                  "type":"web_url",
+                  "label":"Acheter en ligne",
+                  "payload":"https://serv-api.target2sell.com/1.1/R/cookie/OFCBMN5RRHSG5L/1200/OFCBMN5RRHSG5L-1200-5/20343224/1/viewTogether-%7BtypeOfContextList%3A%5B%22current%22%2C%22view%22%5D%7D/f082e51f-561d-47f7-c0cb-13735e58bfc1"
+               },
+               {
+                  "type":"natural_language",
+                  "label":"Tous les fauteuils",
+                  "payload":"Je veux voir tous les fauteuils du magazin Ikea le plus proche"
+               },
+               {
+                  "type":"custom",
+                  "client":"specific_custom_client_name",
+                  "label":"Ajouter au panier",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD"
+               }
+            ]
+         }
+      ],
+      "suggestions":[
+         {
+            "type":"web_url",
+            "label":"Les magasins Ikea",
+            "payload":"https://www.ikea.com/ms/fr_FR/ikny_splash.html"
+         },
+         {
+            "type":"natural_language",
+            "label":"Politique de confidentialité",
+            "payload":"Je voudrais voir la politique de confidentialité de la société Ikea en France"
+         }
+      ],
+      "context":[
+
+      ],
+      "echo": {
+        "session": "XXXXXXXX"
+      }
+   },
+   "status":{
+      "code":200,
+      "message":"success"
+   },
+   "meta":{
+      "botName":"Ikea",
+      "botIcon":"https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/4a/23/cb/4a23cb34-1039-af8d-32f0-c3e3bf313da3/source/256x256bb.jpg",
+      "version":"0.1",
+      "copyright":"Copyright 2018 Ikea.",
+      "authors":[
+         "Jane Doe",
+         "John Doe"
+      ],
+      "score":{
+         "min":0,
+         "max":1,
+         "value":0.75
+      }
+   }
 }
 ----
 
@@ -211,23 +240,63 @@ This object define a single resource object or an empty object ({}).
 |====
 |Field Name | Type | Description | Required
 |question| String | Natural language query | *OPTIONAL*
+|score| Number | Score for answer, this score is between meta : scoring-min / scoring-max. It's a bot relative value | *OPTIONAL*
 |userId| String | User ID given with the query | *REQUIRED*
 |timestamp| String | Date and time of the request in UTC timezone using https://en.wikipedia.org/wiki/Unix_time[Unix Timestamp] | *REQUIRED*
-|text| String | Text given as the most simple bot answer. This is the only one mandatory text bot answer. It will be used by less rich channels like SMS for instance | *REQUIRED*
+|channel| <<anchor-channel,_channel_ object>> | Give different answer ordered by target channel | *REQUIRED*
 |tts| <<anchor-tts,_tts_ object>>  | This object describe what should be used as answer for a voice channel. Either using a standard text different than the display text message or either using a specific Speech Synthesis Markup Language (SSML) format as https://www.w3.org/TR/speech-synthesis11/[described by W3C]. This object is not mandatory, but if this field is not present, a voice compatible assistant or bot will use the default previous +text+ string to be spoken | *OPTIONAL*
 |infoURL| String | This field is an URL that could provide more info on the particular response. This field is optional. It may be used for instance to provide with additional rich response through an URL for channels that does not support rich contents (like SMS) | *OPTIONAL*
 |media| Array of <<anchor-media, _media_ object>> | A <<anchor-media, _media_ object>> is made of an image or a video, a title, a long or a short description and zero or up to 3 buttons | *OPTIONAL*
 |suggestions| Array of <<anchor-suggestion, _suggestion_ object>> | A +suggestion+ object is a single button action that is usually presented within a horizontally carousel bellow bot response. After selection of one of the button, all other buttons from carousel should be removed from client presentation | *OPTIONAL*
-|context| Array of <<anchor-context, _context_ object>>. [TBD].| Optional item to be used to share any specific bot context. | *OPTIONAL*
+|context| Array of <<anchor-context, _context_ object>>. [TBD].| Optional item to be used to share any specific bot context.| *OPTIONAL*
+|echo| Object | Some information to send back in futur requests, without any change | *OPTIONAL*
 |====
 
-[[anchor-tts]]
-===== _tts_ object
+[[anchor-channel]]
+===== _channel_ object
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|type| String | This field is required but only if <<anchor-tts, _tts_ object>> is used. The type could be either `plainText` or `SSML`. If type is `plainText` clients will use the string given in `payload` to be spoken. If type is `SSML` clients will use SSML specification for rich voice rendering | *REQUIRED*
-|payload| String | This field is required but only if `tts` object is used. It is the content of spoken text either describe as simple text or as SSML tags | *REQUIRED*
+|web| <<anchor-channel-web,_channel-web_ object>> | This field is required but only if <<anchor-tts, _tts_ object>> is used. The type could be either `plainText` or `SSML`. If type is `plainText` clients will use the string given in `payload` to be spoken. If type is `SSML` clients will use SSML specification for rich voice rendering | *REQUIRED*
+|messenging| <<anchor-channel-messenging,_channel-messenging_ object>> | This field is required but only if <<anchor-tts, _tts_ object>> is used. The type could be either `plainText` or `SSML`. If type is `plainText` clients will use the string given in `payload` to be spoken. If type is `SSML` clients will use SSML specification for rich voice rendering | *REQUIRED*
+|sms| <<anchor-channel-sms,_channel-sms_ object>> | This field is required but only if <<anchor-tts, _tts_ object>> is used. The type could be either `plainText` or `SSML`. If type is `plainText` clients will use the string given in `payload` to be spoken. If type is `SSML` clients will use SSML specification for rich voice rendering | *REQUIRED*
+|tts| <<anchor-channel-tts,_channel-tts_ object>> | This field is required but only if <<anchor-tts, _tts_ object>> is used. The type could be either `plainText` or `SSML`. If type is `plainText` clients will use the string given in `payload` to be spoken. If type is `SSML` clients will use SSML specification for rich voice rendering | *REQUIRED*
+|====
+
+[[anchor-channel-web]]
+===== _channel-web_ object
+[options="header,footer"]
+|====
+|Field Name | Type | Description | Required
+|type| String | This field is required. The type could be either `plainText`,`HTML`. | *REQUIRED*
+|playload| String | It is the content of web text either describe as simple text or as HTML tags | *REQUIRED*
+|====
+
+[[anchor-channel-messenging]]
+===== _channel-messenging_ object
+[options="header,footer"]
+|====
+|Field Name | Type | Description | Required
+|type| String | This field is required. The type could be either `plainText`.  | *REQUIRED*
+|playload| String | It is the content of response text simple | *REQUIRED*
+|====
+
+[[anchor-channel-sms]]
+===== _channel-sms_ object
+[options="header,footer"]
+|====
+|Field Name | Type | Description | Required
+|type| String | This field is required. The type could be either `plainText`. | *REQUIRED*
+|playload| String | It is the content of sms text either describe as simple text | *REQUIRED*
+|====
+
+[[anchor-channel-tts]]
+===== _channel-tts_ object
+[options="header,footer"]
+|====
+|Field Name | Type | Description | Required
+|type| String | This field is required. The type could be either `plainText` or `SSML`. If type is `plainText` clients will use the string given in `payload` to be spoken. If type is `SSML` clients will use SSML specification for rich voice rendering | *REQUIRED*
+|playload| String | It is the content of spoken text either describe as simple text or as SSML tags | *REQUIRED*
 |====
 
 [[anchor-media]]
@@ -297,6 +366,8 @@ Any custom item could by added there.
 |botIcon| +String+ | Used to reference bot icon (image) url. No strong constraints given so far, but current recommendation is to keep it small (ex: 300x300 pixels) with alpha. | *OPTIONAL*
 |version| +String+ | Describing version number format with _major.minor_ as per latest https://swagger.io/specification/[OpenAPI specifications].| *OPTIONAL*
 |copyright| +String+ | Copyright | *OPTIONAL*
+|scoring-min| Number | Bot min score for answer | *OPTIONAL*
+|scoring-max| Number | Bot maximum score for answer (considered as est answer) | *OPTIONAL*
 |====
 
 == Swagger demo
