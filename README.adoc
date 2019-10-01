@@ -36,7 +36,7 @@ toc::[]
 Open ChatBot is an https://www.alliance-open-chatbot.org[Alliance For Open ChatBot] initiative 
 to define a common standard specification for communication with and between any conversational agent (text and/or voice).
 
-Current document is the very first *DRAFT* of this open standard specification.
+Current document is the official release of this open standard specification.
 
 == *GET* query
 
