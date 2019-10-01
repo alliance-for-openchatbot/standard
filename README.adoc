@@ -135,10 +135,13 @@ Content-Type: application/json
         "echo": {
             "session": "XXXXXXXX"
         },
+        "score": {
+            "value": 0.75
+        },
         "channel": {
-            "web": {
-                "type": "moustachText",
-                "payload": "J'ai vos produits ici {{Go}}"
+            "markup": {
+                "type": "html",
+                "payload": "<ul><li>bullet 1</li><li>bullet 2</li></ul>"
             },
             "messaging": {
                 "type": "plainText",
@@ -207,12 +210,7 @@ Content-Type: application/json
         "authors": [
             "Jane Doe",
             "John Doe"
-        ],
-        "score": {
-            "min": 0,
-            "max": 1,
-            "value": 0.75
-        }
+        ]
     }
 }
 ----
@@ -251,8 +249,8 @@ This object define a single resource object. As OpenChatBot format is out of the
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|web| <<anchor-channel-web,_channel-web_ object>> | WARNING: this key still need to be discussed as allowing HTML entry is a possible security thread for host reading HTML content including javascript injection https://fr.wikipedia.org/wiki/Injection_de_code_dans_les_applications_web[(see Wikipedia article on this topic)]. | *REQUIRED*
-|messenging| <<anchor-channel-messenging,_channel-messenging_ object>> | This field is required and will provide with the most simple text response type to messaging clients possibly different than the form of response made for SMS. | *REQUIRED*
+|web| <<anchor-channel-web,_channel-web_ object>> | WARNING: Unsing key might be very risky while allowing HTML entry is a possible security thread for host reading HTML content including javascript injection https://fr.wikipedia.org/wiki/Injection_de_code_dans_les_applications_web[(see Wikipedia article on this topic)]. | *OPTIONAL*
+|messenging| <<anchor-channel-messenging,_channel-messenging_ object>> | This field will provide with the most simple text response type to messaging clients possibly different than the form of response made for SMS. | *OPTIONAL*
 |sms| <<anchor-channel-sms,_channel-sms_ object>> | This field is required and will provide a response dedicated to SMS channel (that might not support rich encoding for instance). | *REQUIRED*
 |tts| <<anchor-channel-tts,_channel-tts_ object>> | This object describe what should be used as answer for a voice channel. Either using a standard text different than the display text message or either using a specific Speech Synthesis Markup Language (SSML) format as https://www.w3.org/TR/speech-synthesis11/[described by W3C]. This object is not mandatory, but if this field is not present, a voice compatible assistant or bot will use the default previous +text+ string to be spoken. | *REQUIRED*
 |====
@@ -262,8 +260,8 @@ This object define a single resource object. As OpenChatBot format is out of the
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|type| String | *_[TBD]_* The type could be either `plainText`,`HTML`. | *REQUIRED*
-|playload| String | *_[TBD]_* It is the content of web text either describe as simple text or as HTML tags. | *REQUIRED*
+|type| String | So far the only possible type is `HTML`. | *REQUIRED*
+|playload| String | html content to allow formated rendering. *BE AWARE OF SECURITY WARNING*. | *REQUIRED*
 |====
 
 [[anchor-channel-messenging]]
