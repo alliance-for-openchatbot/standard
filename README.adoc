@@ -1,6 +1,6 @@
 = Alliance for Open ChatBot - DRAFT Specifications
-:Date:      22/06/2018
-:Revision:  v0.1.1
+:Date:      01/10/2019
+:Revision:  v1.0.0
 //:source-highlighter: pygments
 //:pygments-style: emacs
 ifdef::env-github[]
