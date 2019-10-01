@@ -236,11 +236,33 @@ This object define a single resource object or an empty object ({}).
 |userId| String | User ID given with the query | *REQUIRED*
 |timestamp| String | Date and time of the request in UTC timezone using https://en.wikipedia.org/wiki/Unix_time[Unix Timestamp] | *REQUIRED*
 |infoURL| String | This field is an URL that could provide more info on the particular response. This field is optional. It may be used for instance to provide with additional rich response through an URL for channels that does not support rich contents (like SMS) | *OPTIONAL*
+|echo| <<anchor-echo,_echo_ object>> | Some information from previous bot answer to give back without any process.| *OPTIONAL*
+|score| <<anchor-score,_score_ object>> | Score value given by answering bot on response confidence. | *OPTIONAL*
 |channel| <<anchor-channel,_channel_ object>> | Give different answers by targeted channel | *REQUIRED*
 |media| Array of <<anchor-media, _media_ object>> | A <<anchor-media, _media_ object>> is made of an image or a video, a title, a long or a short description and zero or up to 3 buttons | *OPTIONAL*
 |suggestions| Array of <<anchor-suggestions, _suggestion_ object>> | A *suggestions* object is a single button action that is usually presented within a horizontally carousel bellow bot response. After selection of one of the button, all other buttons from carousel should be removed from client presentation | *OPTIONAL*
 |context| Array of <<anchor-context, _context_ object>>. [TBD].| Optional item to be used to share any specific bot context. | *OPTIONAL*
 |====
+
+[[anchor-echo]]
+===== _echo_ object
+_score_ object provide with information on current conversaion like session info.
+[options="header,footer"]
+|====
+|Field Name | Type | Description | Required
+| | |  | *OPTIONAL*
+|====
+
+
+[[anchor-score]]
+===== _score_ object
+_score_ object provide with information on bot confidence for response.
+[options="header,footer"]
+|====
+|Field Name | Type | Description | Required
+|value| Float | Float value for actual bot score confidence based on min/max values. | *OPTIONAL*
+|====
+
 
 [[anchor-channel]]
 ==== _channel_ object
@@ -358,18 +380,6 @@ Any custom item could by added there.
 |botIcon| +String+ | Used to reference bot icon (image) url. No strong constraints given so far, but current recommendation is to keep it small (ex: 300x300 pixels) with alpha. | *OPTIONAL*
 |version| +String+ | Describing version number format with _major.minor_ as per latest https://swagger.io/specification/[OpenAPI specifications].| *OPTIONAL*
 |copyright| +String+ | Copyright | *OPTIONAL*
-|score| <<anchor-score,_score_ object>> | Score value given by answering bot on response confidence. | *OPTIONAL*
-|====
-
-[[anchor-score]]
-===== _score_ object
-_score_ object provide with information on bot confidence for response.
-[options="header,footer"]
-|====
-|Field Name | Type | Description | Required
-|min| Integer | integer min value for scoring.| *REQUIRED*
-|max| Integer | integer max value for scoring.| *REQUIRED*
-|value| Float | Float value for actual bot score confidence based on min/max values. | *REQUIRED*
 |====
 
 
