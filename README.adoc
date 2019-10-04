@@ -36,7 +36,7 @@ toc::[]
 Open ChatBot is an https://www.alliance-open-chatbot.org[Alliance For Open ChatBot] initiative 
 to define a common standard specification for communication with and between any conversational agent (text and/or voice).
 
-Current document is the official release of this open standard specification.
+Current document is the official release (v1.0) of this open standard specification.
 
 == *GET* query
 
@@ -131,6 +131,7 @@ Content-Type: application/json
         "query": "je cherche la doc du fauteuil strandmon Ikea",
         "userId": "1234567890",
         "timestamp": 1485358532524,
+        "text": "Vous trouverez plus d'infos là: https://www.ikea.com/fr/fr/catalog/products/70392542/"
         "infoURL": "https://www.ikea.com/fr/fr/catalog/products/70392542/",
         "echo": {
             "session": "XXXXXXXX"
@@ -217,13 +218,13 @@ Content-Type: application/json
 
 === Fields Description
 
-Top level document may contain the following top-level members:
+IMPORTANT: Top level document *MUST* contain <<anchor-response,_response_ object>>, <<anchor-status, _status object_>> objects and <<anchor-meta,_meta_ object>>zz.
 
 * <<anchor-response,_response_ object>>: that define document’s “primary content”. This top level member is *REQUIRED*
 * <<anchor-status,_status_ object>>: This object provide information on request success or failure. This top level member is *REQUIRED*
-* <<anchor-meta,_meta_ object>>: a meta object that contains non-standard meta-information. This top level member is *OPTIONAL*
+* <<anchor-meta,_meta_ object>>: a meta object that contains non-standard meta-information. This top level member is *REQUIRED*
 
-IMPORTANT: Top level document *MUST* contain at least <<anchor-response,_response_ object>> and <<anchor-status, _status object_>> objects.
+
 
 [[anchor-response]]
 ==== _response_ object
@@ -235,6 +236,7 @@ This object define a single resource object or an empty object ({}).
 |query| String | Natural language query | *OPTIONAL*
 |userId| String | User ID given with the query | *REQUIRED*
 |timestamp| String | Date and time of the request in UTC timezone using https://en.wikipedia.org/wiki/Unix_time[Unix Timestamp] | *REQUIRED*
+| text | String | Most simple universal text answer | *REQUIRED*
 |infoURL| String | This field is an URL that could provide more info on the particular response. This field is optional. It may be used for instance to provide with additional rich response through an URL for channels that does not support rich contents (like SMS) | *OPTIONAL*
 |echo| <<anchor-echo,_echo_ object>> | Some information from previous bot answer to give back without any process.| *OPTIONAL*
 |score| <<anchor-score,_score_ object>> | Score value given by answering bot on response confidence. | *OPTIONAL*
@@ -250,7 +252,7 @@ _score_ object provide with information on current conversaion like session info
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-| | |  | *OPTIONAL*
+| session | String | A session value as string. | *OPTIONAL*
 |====
 
 
