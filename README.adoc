@@ -131,7 +131,7 @@ Content-Type: application/json
         "query": "je cherche la doc du fauteuil strandmon Ikea",
         "userId": "1234567890",
         "timestamp": 1485358532524,
-        "text": "Vous trouverez plus d'infos là: https://www.ikea.com/fr/fr/catalog/products/70392542/"
+        "text": "Vous trouverez plus d'infos là: https://www.ikea.com/fr/fr/catalog/products/70392542/",
         "infoURL": "https://www.ikea.com/fr/fr/catalog/products/70392542/",
         "echo": {
             "session": "XXXXXXXX"
