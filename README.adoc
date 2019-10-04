@@ -53,10 +53,10 @@ curl -X GET "https://bot-domain/api/v0.1/ask?userid=1234567890&lang=fr&query=je%
 |Field Name | Type | Description | Required
 |userId| String | String that describe user ID. There is no constraint on length as this ID should be compliant with any bots and services ID. From Facebook type of ID through web cookie token passing by mobile number in international format, or even concatenation of all of those type of ID. |  *REQUIRED*.
 |query| String | URL encoded query to chatbot. | *REQUIRED*
-|lang| String | Language tag, e.g., en, es etc.| *OPTIONAL*
-|echo| Object | Some information from previous bot answer to give back without any process.| *OPTIONAL*
+|lang| String | Language tag, e.g., en, es etc.| OPTIONAL
+|echo| Object | Some information from previous bot answer to give back without any process.| OPTIONAL
 |location| Object | Latitude / longitude and/or address. +
-Example: {"geoPoint": {"latitude": 39.500859,"longitude": -82.080317},"address": "44 Av de la Republique, Chatillon"} | *OPTIONAL*
+Example: {"geoPoint": {"latitude": 39.500859,"longitude": -82.080317},"address": "44 Av de la Republique, Chatillon"} | OPTIONAL
 |====
 
 //{nbsp} +
@@ -233,17 +233,17 @@ This object define a single resource object or an empty object ({}).
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|query| String | Natural language query | *OPTIONAL*
+|query| String | Natural language query | OPTIONAL
 |userId| String | User ID given with the query | *REQUIRED*
 |timestamp| String | Date and time of the request in UTC timezone using https://en.wikipedia.org/wiki/Unix_time[Unix Timestamp] | *REQUIRED*
 | text | String | Most simple universal text answer | *REQUIRED*
-|infoURL| String | This field is an URL that could provide more info on the particular response. This field is optional. It may be used for instance to provide with additional rich response through an URL for channels that does not support rich contents (like SMS) | *OPTIONAL*
-|echo| <<anchor-echo,_echo_ object>> | Some information from previous bot answer to give back without any process.| *OPTIONAL*
-|score| <<anchor-score,_score_ object>> | Score value given by answering bot on response confidence. | *OPTIONAL*
-|channel| <<anchor-channel,_channel_ object>> | Give different answers by targeted channel | *REQUIRED*
-|media| Array of <<anchor-media, _media_ object>> | A <<anchor-media, _media_ object>> is made of an image or a video, a title, a long or a short description and zero or up to 3 buttons | *OPTIONAL*
-|suggestions| Array of <<anchor-suggestions, _suggestion_ object>> | A *suggestions* object is a single button action that is usually presented within a horizontally carousel bellow bot response. After selection of one of the button, all other buttons from carousel should be removed from client presentation | *OPTIONAL*
-|context| Array of <<anchor-context, _context_ object>>. [TBD].| Optional item to be used to share any specific bot context. | *OPTIONAL*
+|infoURL| String | This field is an URL that could provide more info on the particular response. This field is optional. It may be used for instance to provide with additional rich response through an URL for channels that does not support rich contents (like SMS) | OPTIONAL
+|echo| <<anchor-echo,_echo_ object>> | Some information from previous bot answer to give back without any process.| OPTIONAL
+|score| <<anchor-score,_score_ object>> | Score value given by answering bot on response confidence. | OPTIONAL
+|channel| <<anchor-channel,_channel_ object>> | Give different answers by targeted channel | OPTIONAL
+|media| Array of <<anchor-media, _media_ object>> | A <<anchor-media, _media_ object>> is made of an image or a video, a title, a long or a short description and zero or up to 3 buttons | OPTIONAL
+|suggestions| Array of <<anchor-suggestions, _suggestion_ object>> | A *suggestions* object is a single button action that is usually presented within a horizontally carousel bellow bot response. After selection of one of the button, all other buttons from carousel should be removed from client presentation | OPTIONAL
+|context| Array of <<anchor-context, _context_ object>>. [TBD].| Optional item to be used to share any specific bot context. | OPTIONAL
 |====
 
 [[anchor-echo]]
@@ -252,7 +252,7 @@ _score_ object provide with information on current conversaion like session info
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-| session | String | A session value as string. | *OPTIONAL*
+| session | String | A session value as string. | OPTIONAL
 |====
 
 
@@ -262,7 +262,7 @@ _score_ object provide with information on bot confidence for response.
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|value| Float | Float value for actual bot score confidence based on min/max values. | *OPTIONAL*
+|value| Float | Float value for actual bot score confidence based on min/max values. | OPTIONAL
 |====
 
 
@@ -273,10 +273,10 @@ This object define a single resource object. As OpenChatBot format is out of the
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|web| <<anchor-channel-web,_channel-web_ object>> | WARNING: Unsing key might be very risky while allowing HTML entry is a possible security thread for host reading HTML content including javascript injection https://fr.wikipedia.org/wiki/Injection_de_code_dans_les_applications_web[(see Wikipedia article on this topic)]. | *OPTIONAL*
-|messenging| <<anchor-channel-messenging,_channel-messenging_ object>> | This field will provide with the most simple text response type to messaging clients possibly different than the form of response made for SMS. | *OPTIONAL*
-|sms| <<anchor-channel-sms,_channel-sms_ object>> | This field is required and will provide a response dedicated to SMS channel (that might not support rich encoding for instance). | *REQUIRED*
-|tts| <<anchor-channel-tts,_channel-tts_ object>> | This object describe what should be used as answer for a voice channel. Either using a standard text different than the display text message or either using a specific Speech Synthesis Markup Language (SSML) format as https://www.w3.org/TR/speech-synthesis11/[described by W3C]. This object is not mandatory, but if this field is not present, a voice compatible assistant or bot will use the default previous +text+ string to be spoken. | *REQUIRED*
+|web| <<anchor-channel-web,_channel-web_ object>> | WARNING: Unsing key might be very risky while allowing HTML entry is a possible security thread for host reading HTML content including javascript injection https://fr.wikipedia.org/wiki/Injection_de_code_dans_les_applications_web[(see Wikipedia article on this topic)]. | OPTIONAL
+|messenging| <<anchor-channel-messenging,_channel-messenging_ object>> | This field will provide with the most simple text response type to messaging clients possibly different than the form of response made for SMS. | OPTIONAL
+|sms| <<anchor-channel-sms,_channel-sms_ object>> | This field is required and will provide a response dedicated to SMS channel (that might not support rich encoding for instance). | OPTIONAL
+|tts| <<anchor-channel-tts,_channel-tts_ object>> | This object describe what should be used as answer for a voice channel. Either using a standard text different than the display text message or either using a specific Speech Synthesis Markup Language (SSML) format as https://www.w3.org/TR/speech-synthesis11/[described by W3C]. This object is not mandatory, but if this field is not present, a voice compatible assistant or bot will use the default previous +text+ string to be spoken. | OPTIONAL
 |====
 
 [[anchor-channel-web]]
@@ -322,13 +322,13 @@ This object is usually used as an elementary part of a <<anchor-media, _media_ o
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|shortDesc | String | Describe media content with a short text (mostly like a sub-title) [_Number max of characters to be suggested_] | *OPTIONAL*
-|longDesc | String | Describe media content with a long description [_Number max of characters to be suggested_] | *OPTIONAL*
-|title | String | Describe the content with couple or words max [_Number max of characters to be suggested_] | *OPTIONAL*
-|mimeType | String | Describe type of media (ex: image/jpeg, video/mp4, etc.). This might be useful for clients to anticipate what type of media will be displayed (in particular if it's different than a simple image) | *OPTIONAL*
-|src | String | Provide with the URL for a media content (image for instance) | *OPTIONAL*
-|buttons | Array of <<anchor-buttons, _buttons_ object>> | Buttons are associated to each media content. Maximum number of buttons for a media content is 3.  | *OPTIONAL*
-|default_action | <<anchor-default-action,_default_ action>> | Action to be taken when selecting the media object. This is a single  <<anchor-button, _button_ object>> resource.| *OPTIONAL*
+|shortDesc | String | Describe media content with a short text (mostly like a sub-title) [_Number max of characters to be suggested_] | OPTIONAL
+|longDesc | String | Describe media content with a long description [_Number max of characters to be suggested_] | OPTIONAL
+|title | String | Describe the content with couple or words max [_Number max of characters to be suggested_] | OPTIONAL
+|mimeType | String | Describe type of media (ex: image/jpeg, video/mp4, etc.). This might be useful for clients to anticipate what type of media will be displayed (in particular if it's different than a simple image) | OPTIONAL
+|src | String | Provide with the URL for a media content (image for instance) | OPTIONAL
+|buttons | Array of <<anchor-buttons, _buttons_ object>> | Buttons are associated to each media content. Maximum number of buttons for a media content is 3.  | OPTIONAL
+|default_action | <<anchor-default-action,_default_ action>> | Action to be taken when selecting the media object. This is a single  <<anchor-button, _button_ object>> resource.| OPTIONAL
 |====
 
 [[anchor-default-action]]
@@ -349,7 +349,7 @@ _button_ object
 Button type could be either `web_url`, `natural_language` or `custom`. +
 When button type is `custom` a `client` key must be set in addition to `label` key and `payload` keys. | *REQUIRED*
 |label| String | Label to be displayed for the button (this does not make much sense when in default_action situation unless label is shown on overlay to a media resource for instance). Most of the time this might need to be shorter than the full sentence or long URLs| *REQUIRED*
-|client| String | This key should only exist if `type` is `custom`. It should provide a custom identification of clients that will support a custom payload (ex: client key could be "app-xxx" to perform a specific action that only app-xxx can perform). | *OPTIONAL*
+|client| String | This key should only exist if `type` is `custom`. It should provide a custom identification of clients that will support a custom payload (ex: client key could be "app-xxx" to perform a specific action that only app-xxx can perform). | OPTIONAL
 |payload| String | Text to be use for a new bot query if type is `natural_language`. URL to be launched if type is `web_url`. Custom payload if type is `custom`. | *REQUIRED*
 |====
 
@@ -379,9 +379,9 @@ Any custom item could by added there.
 |====
 |Field Name | Type | Description | Required
 |botName| +String+ | Used to name which service/bot is answering the question. This name should be unique within a specific metabot instance. This name will have to be registred and approved by OpenChatBot Alliance as part of the certification process (official "Compatible OpenChatBot" stamp). | *REQUIRED*
-|botIcon| +String+ | Used to reference bot icon (image) url. No strong constraints given so far, but current recommendation is to keep it small (ex: 300x300 pixels) with alpha. | *OPTIONAL*
-|version| +String+ | Describing version number format with _major.minor_ as per latest https://swagger.io/specification/[OpenAPI specifications].| *OPTIONAL*
-|copyright| +String+ | Copyright | *OPTIONAL*
+|botIcon| +String+ | Used to reference bot icon (image) url. No strong constraints given so far, but current recommendation is to keep it small (ex: 300x300 pixels) with alpha. | OPTIONAL
+|version| +String+ | Describing version number format with _major.minor_ as per latest https://swagger.io/specification/[OpenAPI specifications].| OPTIONAL
+|copyright| +String+ | Copyright | OPTIONAL
 |====
 
 
