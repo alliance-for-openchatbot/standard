@@ -273,14 +273,14 @@ This object define a single resource object. As OpenChatBot format is out of the
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
-|web| <<anchor-channel-web,_channel-web_ object>> | WARNING: Unsing key might be very risky while allowing HTML entry is a possible security thread for host reading HTML content including javascript injection https://fr.wikipedia.org/wiki/Injection_de_code_dans_les_applications_web[(see Wikipedia article on this topic)]. | OPTIONAL
+|markup| <<anchor-channel-markup,_channel-markup_ object>> | WARNING: Unsing key might be very risky while allowing HTML entry is a possible security thread for host reading HTML content including javascript injection https://fr.wikipedia.org/wiki/Injection_de_code_dans_les_applications_web[(see Wikipedia article on this topic)]. | OPTIONAL
 |messenging| <<anchor-channel-messenging,_channel-messenging_ object>> | This field will provide with the most simple text response type to messaging clients possibly different than the form of response made for SMS. | OPTIONAL
 |sms| <<anchor-channel-sms,_channel-sms_ object>> | This field is required and will provide a response dedicated to SMS channel (that might not support rich encoding for instance). | OPTIONAL
 |tts| <<anchor-channel-tts,_channel-tts_ object>> | This object describe what should be used as answer for a voice channel. Either using a standard text different than the display text message or either using a specific Speech Synthesis Markup Language (SSML) format as https://www.w3.org/TR/speech-synthesis11/[described by W3C]. This object is not mandatory, but if this field is not present, a voice compatible assistant or bot will use the default previous +text+ string to be spoken. | OPTIONAL
 |====
 
-[[anchor-channel-web]]
-===== _channel-web_ object
+[[anchor-channel-markup]]
+===== _channel-markup_ object
 [options="header,footer"]
 |====
 |Field Name | Type | Description | Required
