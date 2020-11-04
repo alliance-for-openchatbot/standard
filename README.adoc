@@ -388,5 +388,5 @@ Any custom item could by added there.
 == Swagger demo
 Test your client with current version of Open ChatBot specification.
 
-You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here]. Use "@degug suggestions" in the chat box for a full set of keys within response.
+You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here]. Use "@debug suggestions" in the chat box for a full set of keys within response.
 
