@@ -390,3 +390,13 @@ Test your client with current version of Open ChatBot specification.
 
 You can test current draft API specification from Swagger https://openchatbot.io/swagger/swagger.html[here]. Use "@debug suggestions" in the chat box for a full set of keys within response.
 
+== Known implementations
+There are a number of open source packages which you may leverage with this standard:
+
+You can interact in python with standard compliant bots using the https://github.com/konverso-ai/open-chatbot-py-client[open-chatbot-py-client] package.
+
+You can easily add a Web Chat widget to your web page, connected to a compliant bot, using the  https://github.com/ohoachuck/openchatbot-webclient[openchatbot-webclient] package.
+
+== Other reading
+We recommend also checking the bot registration, per domain, at https://openchatbot.io/domainbots
+
